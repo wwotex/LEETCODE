@@ -15,3 +15,17 @@ python dictionary to check if something exists AND if it is equal something use 
         if el not in D or D[el] != x:
     use:
         if D.get(el) != x:
+
+reversing linked lists - quite complicated to get it right - important intuition behind iterative approach -> 
+first at each step you save the next node and then you redirect the "arrow" from current to previous node and then
+you rename previous to current and current to next
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        curr = head
+        prev = None
+        while curr is not None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        return prev
+    
