@@ -6,22 +6,34 @@ class ListNode:
         self.val = val
         self.next = next
 
-
+#cleaner version
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head is None:
-            return None
         curr = head
-        while curr.next is not None:
-            curr, head = self.makeHead(curr, head)
-        return head
+        prev = None
+        while curr is not None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        return prev
+
+
+# class Solution:
+#     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         if head is None:
+#             return None
+#         curr = head
+#         while curr.next is not None:
+#             curr, head = self.makeHead(curr, head)
+#         return head
 
     
-    def makeHead(self, parent, head):
-        to_be_head = parent.next
-        parent.next = to_be_head.next
-        to_be_head.next = head
-        return parent, to_be_head
+#     def makeHead(self, parent, head):
+#         to_be_head = parent.next
+#         parent.next = to_be_head.next
+#         to_be_head.next = head
+#         return parent, to_be_head
 
 
 
@@ -43,7 +55,7 @@ def printLinked(head):
         curr = curr.next
     print('\n')
 
-L = [1,2,3]
+L = [1,2,3,4 ]
 
 head = list2linked(L)
 

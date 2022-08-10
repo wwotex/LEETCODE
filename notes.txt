@@ -1,0 +1,17 @@
+instead of typical C++ syntax use Python functions: 
+    for i, el in enumerate(list):
+    for el1, el2 in zip(l1, l2):
+
+instead of left and right prefix tables use total sum and a dynamically changing left prefix:
+    S = sum(nums)
+    leftsum = 0
+    for i, el in enumerate(nums):
+        if leftsum == (S - el - leftsum):
+            return i
+        leftsum += el
+
+python dictionary to check if something exists AND if it is equal something use .get function:
+    instead of:
+        if el not in D or D[el] != x:
+    use:
+        if D.get(el) != x:
