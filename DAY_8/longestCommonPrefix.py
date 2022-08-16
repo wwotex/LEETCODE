@@ -20,6 +20,18 @@ class Solution:
 
         return "".join(result)
 
+    def longestCommonPrefix2(self, strs):
+        result = []
+
+        # unpacks the list into separate strings to zip them so that each character is tupled with the corresponding characters from other strings
+        for x in zip(*strs):
+            # parse the tuple of characters to a set so that no duplicate elements exist so that if the number of elements is one means all characters were the same
+            if len(set(x)) == 1: 
+                result.append(x[0])
+            else:
+                break
+        return "".join(result)
+
 sol = Solution()
 strs = ["flower","flow","flight"]
-print(sol.longestCommonPrefix(strs))
+print(sol.longestCommonPrefix2(strs))
