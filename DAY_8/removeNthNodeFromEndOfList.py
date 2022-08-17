@@ -1,8 +1,3 @@
-# Definition for singly-linked list.
-from email import header
-from tkinter import N
-
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
