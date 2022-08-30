@@ -28,4 +28,7 @@ you rename previous to current and current to next
             prev = curr
             curr = next
         return prev
+
+prefix sum with dictionary method 
+keeping the prefix sum and saving them in the dictionary to find all paths that sum to target
     
