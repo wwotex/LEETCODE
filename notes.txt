@@ -31,4 +31,6 @@ you rename previous to current and current to next
 
 prefix sum with dictionary method 
 keeping the prefix sum and saving them in the dictionary to find all paths that sum to target
-    
+
+for algorithms like BFS from multiple starting points with keeping track of the timesteps 
+instead of using two queues (one as a buffer) use a delimiter element to add timesteps
