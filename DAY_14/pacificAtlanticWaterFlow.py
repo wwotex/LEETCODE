@@ -1,5 +1,5 @@
 from collections import deque
-from this import d
+import numpy as np
 
 class Solution:
     def pacificAtlantic(self, heights):
@@ -8,12 +8,14 @@ class Solution:
         visited = [[0 for x in range(COLS)] for y in range(ROWS)]
         Q = deque()
         results = [] 
-        def isAvailable(cell, prev, marker):
+        def isAvailable(cell, marker):
             return  0 <= cell[0] < ROWS and 0 <= cell[1] < COLS and \
-                    heights[cell[0]][cell[1]] > heights[prev[0]][prev[1]] and \
                     visited[cell[0]][cell[1]] != marker and visited[cell[0]][cell[1]] != DOUBLE_MARKER
 
         def visitCell(cell, marker):
+            if not isAvailable(cell, marker):
+                return
+            # print(f'\nvisiting {cell} val: {heights[cell[0]][cell[1]]} visited: {visited[cell[0]][cell[1]]}')
             if visited[cell[0]][cell[1]] == 0:
                 visited[cell[0]][cell[1]] = marker 
             else: 
@@ -22,8 +24,11 @@ class Solution:
             directions = [[0,1], [0,-1], [1,0], [-1,0]]
             for dir in directions:
                 new_x, new_y = cell[0] + dir[0], cell[1] + dir[1]
-                if isAvailable((new_x, new_y), (cell[0], cell[1]), marker):
+                if isAvailable((new_x, new_y), marker) and \
+                    heights[new_x][new_y] >= heights[cell[0]][cell[1]]:
                     Q.append((new_x, new_y))
+                    # print(f'adding to queue: {(new_x, new_y)}')
+
 
         #pacific (top-left)
         for el in range(ROWS):
@@ -44,7 +49,7 @@ class Solution:
         while Q:
             cell = Q.pop()
             visitCell(cell, ATLANTIC_MARKER)
-
+        return results
 
 
 sol = Solution()
