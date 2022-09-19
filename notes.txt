@@ -43,3 +43,6 @@ use
 when using nested functions use the NONLOCAL keyword for accessing nonlocal variables
 
 minStack -> use two stacks the other one for keeping track of the minimum value at each point
+
+fajny szybki zapis: 
+prev, curr = curr, max( ..... )

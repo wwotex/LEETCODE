@@ -4,30 +4,21 @@ from typing import List
 
 class Solution:
     def deleteAndEarn(self, nums: List[int]) -> int:
-        nums = Counter(nums)
-        S = [(0, nums)]
-        ans = 0
-        while S:
-            (sum, curr) = S.pop()
-            if len(curr) == 1:
-                key = next(iter(curr))
-                ans = max(ans, sum + key*curr[key])
-                continue
-            
-            for key in curr.keys():
-                new = curr.copy()
-                new[key] -= 1
-                if new[key] == 0: new.pop(key)
-                if key+1 in new: new.pop(key+1)
-                if key-1 in new: new.pop(key-1)
-                if new:
-                    S.append((sum+key, new))
-                else:
-                    ans = max(sum+key, ans)
-        
-        return ans
+        nums = list(Counter(nums).items())
+        nums.sort()
+        prev = 0
+        curr = nums[0][0]*nums[0][1]
+        for x in range(1, len(nums)):
+            new = nums[x][0]*nums[x][1]
+
+            if nums[x-1][0] == nums[x][0] - 1:
+                prev, curr = curr, max(prev+new, curr)
+            else:
+                prev, curr = curr, max(prev+new, curr+new)
+
+        return curr
 
 sol = Solution()
 
-nums = [3,7,10,5,2,4,8,9,9,4,9,2,6,4,6,5,4,7,6,10]
+nums = [2,2,3,3,3,4]
 print(sol.deleteAndEarn(nums))
