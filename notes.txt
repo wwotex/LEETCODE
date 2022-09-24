@@ -92,3 +92,7 @@ z tym co było bo tylko zmniejszamy wynik
 FOR CYCLIC ARRAYS
 important note is that the max "wrapping" sum is (total sum - min sum)
 [ PART OF MAX SUM SUBARRAY ][ MIN SUBARRAY ][ PART OF MAX SUM SUBARRAY ]
+
+
+in python you can actually keep passing the same array multiple times and it does not get copied only a reference to it is there
+good for post-order iterative DFS tree traversal
