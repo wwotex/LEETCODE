@@ -96,3 +96,5 @@ important note is that the max "wrapping" sum is (total sum - min sum)
 
 in python you can actually keep passing the same array multiple times and it does not get copied only a reference to it is there
 good for post-order iterative DFS tree traversal
+
+DP -> selling stocks taught me to take DP problems in the form of FSM (finite state machines)
