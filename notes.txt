@@ -100,3 +100,5 @@ good for post-order iterative DFS tree traversal
 DP -> selling stocks taught me to take DP problems in the form of FSM (finite state machines)
 
 LEARN SEGMENT TREES
+
+LEARN TRIE properly
