@@ -101,4 +101,6 @@ DP -> selling stocks taught me to take DP problems in the form of FSM (finite st
 
 LEARN SEGMENT TREES
 
-LEARN TRIE properly
+maximal square question -> very interesting way of looking at some problems that once you solve
+                            for a smaller square you also know that this helps you with figuring out
+                            bigger squares and that a big square has to contain small squares
