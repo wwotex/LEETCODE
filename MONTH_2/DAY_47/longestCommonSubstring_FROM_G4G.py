@@ -29,7 +29,7 @@ def LCSubStr(X, Y, m, n):
                 result = max(result, LCSuff[i][j])
             else:
                 LCSuff[i][j] = 0
-    print(np.asarray(LCSuff))
+    print(np.asarray(LCSuff)) 
     return result
  
  
